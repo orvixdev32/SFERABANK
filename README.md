@@ -1,36 +1,50 @@
-# 🌌 SferaBank — Сучасний Веб-Банкінг Інтерфейс
+MintixBank
 
-**SferaBank** — це стильний, повністю адаптивний та інтерактивний веб-інтерфейс для онлайн-банкінгу. Проєкт розроблено з акцентом на сучасний UI/UX дизайн, чисті анімації та повну підтримку темної теми. 
+Frontend part of a website for a modern online bank. The project demonstrates modern UI/UX design, interactive elements, and optimized performance on mobile devices.
 
-Цей проєкт чудово демонструє роботу з каскадними стилями (CSS), маніпуляціями з DOM за допомогою чистого JavaScript (Vanilla JS), реалізацією мультимовності та адаптивної верстки під будь-які мобільні пристрої.
+Core Features
 
----
+Responsive design (Mobile-First) using Flexbox and CSS Grid.
 
-## ✨ Ключовий функціонал проєкту
+Theme switcher (Light/Dark) with state saved in LocalStorage.
 
-1. **🌗 Динамічна зміна теми:** Повна підтримка світлої (`light-theme`) та глибокої темної теми (`dark-theme`) із автоматичним збереженням вибору користувача у `localStorage` браузера (при перезавантаженні сторінки тема не злітає).
-2. **🌐 Повна локалізація (Мультимовність):** Перемикання інтерфейсу між українською (**UA**) та англійською (**EN**) мовами в один клік без перезавантаження сторінки.
-3. **💳 Картка з 3D-ефектом (Vanilla-Tilt):** Інтерактивна банківська карта в секції замовлення, яка динамічно реагує на рух курсору миші (ефект нахилу та відблиску).
-4. **💬 Інтерактивний чат підтримки:** Кастомний віджет «Sfera Support» із плавною CSS-анімацією появи та приховування при кліку на тригер.
-5. **📱 Адаптивне мобільне меню (Burger Menu):** Зручна навігація для смартфонів та планшетів з анімованою іконкою-бургер та плавним виїздом меню.
-6. **📝 Сучасна форма замовлення:** Інпути з ефектом плаваючих підказок (Floating Labels), які плавно зменшуються та відлітають вгору при фокусі чи заповненні поля.
-7. **🔒 Модальне вікно авторизації:** Кастомне вікно входу з валідацією полів та інтеграцією з профілем користувача.
+Multilingual support (UA/EN) with dynamic text replacement via JavaScript.
 
----
+Interactive 3D card in the hero section (powered by vanilla-tilt.js).
 
-## 🛠️ Технологічний стек
+Chatbot widget:
 
-* **HTML5** — семантична структура, підтримка атрибутів валідації та дата-атрибутів (`data-lang`).
-* **CSS3** — кастомні змінні, CSS-Grid / Flexbox, складні CSS-анімації, `backdrop-filter` ефекти розмиття та адаптивні медіа-запити (`@media`).
-* **JavaScript (Vanilla JS)** — робота з подіями (Event Listeners), локальним сховищем (`localStorage`), динамічна зміна класів та обробка мовних пакетів.
-* **Vanilla-Tilt.js** — легковагова бібліотека для реалізації smooth 3D parallax ефекту на банківській картці.
+Animated message appearance.
 
----
+Typing indicator for the manager.
 
-## 📂 Структура файлів проєкту
+New message badge and popup greeting (tooltip).
 
-```text
-├── index.html        # Головна сторінка сайту (розмітка та структура)
-├── style.css         # Таблиця стилів (дизайн, темна тема, медіа-запити)
-├── javascript.js     # Скрипти (логіка чату, мов, теми та модалок)
-└── README.md         # Документація проєкту (цей файл)
+Full-screen mode for mobile devices.
+
+Card order form with floating labels effect.
+
+Authorization modal window with CSS loading animation (spinner) and input error handling.
+
+Technologies
+
+HTML5 (Semantic markup, a11y accessibility attributes)
+
+CSS3 (CSS variables, keyframes animations, backdrop-filter)
+
+JavaScript (ES6, DOM manipulation, setTimeout, LocalStorage)
+
+Project Structure
+
+index.html : Main markup file.
+
+style.css : All project styles, including media queries for responsiveness and dark theme styles.
+
+javascript.js : Logic for language switcher, themes, modal windows, login form, and chatbot.
+
+How to Run
+
+The project is completely static and requires no build steps or dependencies.
+To view it, simply open the index.html file in any modern web browser.
+
+For development and to avoid potential CORS issues (if external APIs are added later), it is recommended to run the project via a local server, such as the Live Server extension for VS Code.
