@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SferaBank</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="javascript.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="logo">SferaBank</h1>
+        <div class="burger-menu" id="burgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav">
+            <a href="#" data-lang="nav_home">Головна</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-trigger" data-lang="nav_services">Послуги</a>
+                <div class="dropdown-menu">
+                    <a href="#" data-lang="menu_cards">Картки та рахунки</a>
+                    <a href="#" data-lang="menu_deps">Депозити</a>
+                    <a href="#" data-lang="menu_credit">Кредити</a>
+                    <a href="#" data-lang="menu_plat">Платежі та перекази</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-trigger" data-lang="contact">Контакти</a>
+                <div class="dropdown-menu">
+                    <a href="#" data-lang="chat">Чат підтримки 24/7</a>
+                    <a href="#" data-lang="maps">Мапа відділень</a>
+                    <a href="#" data-lang="hotline">Гаряча лінія</a>
+                </div>
+            </div>
+            <button class="btn-login" data-lang="login_btn">Увійти</button>
+            <div class="lang-switch">
+                <button class="lang-btn active">UA</button>
+                <button class="lang-btn">EN</button>
+            </div>
+            <div id="themeToggle" style="cursor: pointer; font-size: 20px; margin-left: 15px;">🌙</div>
+        </nav>
+    </header>
+
+    <main class="main-content-wrapper">
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h2 class="bank" data-lang="hero_title">Ваш онлайн банк</h2>
+                    <p class="bankview" data-lang="hero_desc">Простий та зручний банкінг для кожного.</p>
+                    <button class="btn-hero-login" data-lang="login_btn">Увійти</button>
+                </div>
+
+                <div class="hero-image-wrapper">
+                    <div class="bank-card-3d" data-tilt data-tilt-max="15" data-tilt-glare data-tilt-max-glare="0.3">
+                        <div class="card-chip"></div>
+                        <div class="card-logo">SferaBank</div>
+                        <div class="card-details-group">
+                            <div class="card-number">**** **** **** 4443</div>
+                            <div class="card-holder">ADMIN USER</div>
+                        </div>
+                    </div> </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2 data-lang="about">Про банк</h2>
+            <p data-lang="aboutinfo">SferaBank допомагає керувати фінансами онлайн.</p>
+        </section>
+
+        <section class="services-section">
+            <h2 data-lang="service">Наші послуги</h2>
+            <div class="services-grid">
+                <div class="service-card" data-lang="servmoney">Переказ коштів</div>
+                <div class="service-card" data-lang="servkomu">Оплата комунальних послуг</div>
+                <div class="service-card" data-lang="servcards">Банківські картки</div>
+                <div class="service-card" data-lang="servonline">Онлайн кредити</div>
+            </div>
+        </section>
+<section class="order-section">
+    <div class="order-container">
+        <h2 data-lang="order_title">Замовити картку у нас!</h2>
+        <p data-lang="order_subtitle">Залиште свої дані, і наш менеджер зв'яжеться з вами для підтвердження</p>
+        
+        <form action="submit-form.php" method="POST" class="order-form">
+            
+            <div class="input-group">
+                <input type="text" id="orderName" name="username" data-lang="order_name" placeholder="Ваше ім'я" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="tel" id="orderPhone" name="userphone" data-lang="order_phone" placeholder="Номер телефону" required>
+            </div>
+            
+            <div class="input-group">
+                <select id="cardType" name="cardtype" required>
+                    <option value="" disabled selected data-lang="order_select">Оберіть тип картки</option>
+                    <option value="black" data-lang="card_black">Sfera Black (Кредитна)</option>
+                    <option value="green" data-lang="card_green">Sfera Green (Дебетова)</option>
+                    <option value="platinum" data-lang="card_plat">Sfera Platinum (Преміум)</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn-order" data-lang="order_btn">Відправити заявку</button>
+        </form>
+    </div>
+</section>
+    </main>
+
+    <footer class="footer">
+        <p data-lang="rights">© 2026 SferaBank. Усі права захищені.</p>
+    </footer>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-window">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <h3 data-lang="login">Вхід у SferaBank</h3>
+            <form id="loginForm">
+                <input type="text" data-lang="loginname" placeholder="Логін або телефон" required>
+                <input type="password" data-lang="loginpass" placeholder="Пароль" required>
+                <button type="submit" data-lang="loginlogin" class="btn-submit-form">Увійти</button>
+            </form>
+        </div>
+    </div>
+<div class="chat-wrapper">
+    <div class="chat-box" id="chatWindow">
+        <div class="header" style="position: static; padding: 15px; border-radius: 20px 20px 0 0;">
+            <span>Sfera Support</span>
+        </div>
+        <div class="chat-content" id="chatMessages">
+            <p data-lang="supportchat">Привіт! 👋 Чим допомогти?</p>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" data-lang="supportchat2" placeholder="Ваше питання...">
+            <button id="sendMsg">🚀</button>
+        </div>
+    </div>
+    <button class="chat-btn" id="chatTrigger"></button>
+</div>
+</html>

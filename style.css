@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body { background-color: #a8e6cf; color: #1a1a1a; overflow-x: hidden; }
+
+/* HEADER */
+.header { display: flex; align-items: center; justify-content: space-between; padding: 20px 10%; background-color: rgba(168, 230, 207, 0.4);; backdrop-filter: blur(15px); border: none; position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; box-sizing: border-box; transition: transform 0.4s ease-in-out; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);}
+.header-hidden { transform: translateY(-100%);}
+.logo { font-size: 32px; font-weight: 800; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.1); }
+.nav { display: flex; align-items: center; gap: 35px; }
+.nav a { text-decoration: none; color: #1a1a1a; font-weight: 600; transition: 0.3s; }
+.btn-login { background: #000; color: #fff; padding: 10px 24px; border: none; border-radius: 12px; cursor: pointer; transition: 0.3s; }
+.btn-login:hover { background: #333; }
+
+/* DROPDOWN */
+.dropdown { position: relative; padding-bottom: 10px; margin-bottom: -10px; }
+.dropdown-menu {
+    opacity: 0; visibility: hidden;
+    position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    background: #fff; padding: 12px; border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    display: flex; flex-direction: column; gap: 4px; min-width: 240px; z-index: 100;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none;
+}
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+.dropdown-menu a { padding: 12px 16px; border-radius: 12px; font-weight: 500; font-size: 15px; color: #333; transition: 0.2s; display: block; }
+.dropdown-menu a:hover { background-color: #f2fcf8; padding-left: 20px; }
+
+/* LANG SWITCH */
+.lang-switch { display: flex; gap: 5px; }
+.lang-btn { background: transparent; border: 2px solid #000; color: #000; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-weight: 700; transition: 0.3s; }
+.lang-btn.active, .lang-btn:hover { background: #000; color: #fff; }
+
+/* HERO SECTION */
+.main-content-wrapper { background: linear-gradient(180deg, #a8e6cf 0%, #f7fffb 40%, #f7fffb 60%, #a8e6cf 100%); padding-bottom: 60px; padding-top: 100px;}
+
+.hero-section { min-height: 80vh; display: flex; align-items: center; padding: 0 10%; perspective: 1000px; }
+.hero-container { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 40px; }
+.hero-content { flex: 1; max-width: 600px; }
+.bank { font-size: 72px; font-weight: 900; line-height: 1.1; margin-bottom: 15px; transition: 0.3s; }
+.bankview { font-size: 20px; margin-bottom: 35px; color: #444; }
+
+/* 3D CARD STYLE */
+.hero-image-wrapper { flex: 1; display: flex; justify-content: flex-end; }
+.bank-card-3d {
+    width: 380px; height: 220px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 24px; padding: 30px;
+    position: relative; box-shadow: 20px 40px 60px rgba(0,0,0,0.1);
+    transform-style: preserve-3d; cursor: pointer;
+    transform: rotateY(-15deg) rotateX(10deg); /* Початковий нахил */
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
+    display: flex; flex-direction: column; justify-content: space-between;
+}
+.bank-card-3d:hover { transform: rotateY(0deg) rotateX(0deg) scale(1.05); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15); }
+
+.card-chip { width: 50px; height: 38px; background: linear-gradient(135deg, #ffd700, #ffb900); border-radius: 8px; transform: translateZ(40px); }
+.card-logo { font-weight: 800; font-size: 24px; color: #1a1a1a; transform: translateZ(50px); }
+.card-details-group { transform: translateZ(30px); }
+.card-number { font-size: 20px; letter-spacing: 2px; color: #333; margin-bottom: 5px; }
+.card-holder { font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+
+/* BUTTONS */
+.btn-hero-login, .btn-submit-form { background: #000; color: #fff; border: none; border-radius: 15px; font-size: 18px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+.btn-hero-login { width: fit-content; padding: 18px 45px; }
+.btn-submit-form { width: 100%; padding: 16px; margin-top: 10px; }
+.btn-hero-login:hover, .btn-submit-form:hover { transform: translateY(-3px); background: #222; box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
+.close-btn { position: absolute; top: 20px; right: 20px; width: 32px; height: 32px; background: #f0f2f5; /* Легкий сірий фон */ border: none; border-radius: 50%; /* Робимо кнопку круглою */ display: flex; align-items: center; justify-content: center; cursor: pointer; color: #65676b; /* Спокійний колір іконки */ font-size: 16px; transition: all 0.3s ease; /* Плавна анімація */ } /* Ефект при наведенні мишкою */ 
+.close-btn:hover { background-color: #e4e6eb; /* Трохи темніший фон */ color: #1a1a1a; /* Чорний колір хрестика */ transform: rotate(90deg); /* Легке прокручування для стилю */ } /* Прибираємо синю рамку при кліку (outline) */ 
+.close-btn:focus { outline: none; }
+
+
+/* CONTENT BLOCKS */
+.about-section, .services-section { padding: 80px 10%; }
+.about-section h2, .services-section h2 { font-size: 36px; font-weight: 800; margin-bottom: 20px; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px; }
+.service-card { background: #fff; padding: 40px 20px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); font-size: 18px; font-weight: 700; text-align: center; transition: 0.3s; cursor: pointer; border: 2px solid transparent; }
+.service-card:hover { transform: translateY(-8px); border-color: #a8e6cf; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+
+/* FOOTER */
+.footer { text-align: center; padding: 40px 10%; background: #a8e6cf; font-weight: 600; }
+
+/* BURGER ICON */
+.burger-menu { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.burger-menu span { display: block; width: 30px; height: 4px; background-color: #000; border-radius: 2px; transition: 0.3s; }
+
+/* MODAL */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; }
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal-window { background: white; padding: 40px; border-radius: 24px; width: 95%; max-width: 400px; text-align: center; position: relative; }
+.modal-window input { width: 100%; padding: 16px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #ddd; font-size: 16px; }
+
+
+/*chatbot*/
+/* Кнопка чату — стилі під твій дизайн */
+.chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #000; /* Як твоя кнопка Увійти */
+    color: white;
+    border-radius: 50%;
+    border: none;
+    z-index: 2001; /* Вище за хедер */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Вікно чату — використовуємо твій блюр та закруглення */
+.chat-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px); /* Твій фірмовий блюр з хедера */
+    border-radius: 25px; /* Твоє закруглення */
+    display: none;
+    flex-direction: column;
+    z-index: 2001;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: none; 
+    opacity: 0;
+    transform: translateY(30px) scale(0.9); /* Трохи нижче і менше */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Ефект "пружини" */
+}
+.chat-box.show {
+    display: flex; /* Спочатку робимо видимим для системи */
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Повертаємо в нормальний стан */
+}
+
+/* КЛАС ДЛЯ ЗАКРИТТЯ (щоб встигла програтися анімація) */
+.chat-box.hide {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+}
+
+.chat-box.active { display: flex; }
+
+/* Внутрішній контент */
+.chat-content { flex: 1; padding: 15px; overflow-y: auto; font-size: 14px; }
+.chat-input { padding: 10px; display: flex; gap: 5px; background: rgba(168, 230, 207, 0.2); }
+.chat-input input { border: none; padding: 8px; border-radius: 10px; flex: 1; outline: none; }
+.chat-input button { background: none; border: none; cursor: pointer; }
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .bank { font-size: 52px; }
+    .hero-container { gap: 20px; }
+    .bank-card-3d { width: 320px; height: 190px; }
+}
+
+@media (max-width: 768px) {
+    .burger-menu { display: flex; position: relative; position: relative; top: 10px; z-index: 1100;}
+    .nav { position: fixed; top: 0; right: -100%; width: 280px; height: 120dvh;; background: #fff; flex-direction: column; justify-content: center; transition: 0.4s; z-index: 1000; box-shadow: -5px 0 15px rgba(0,0,0,0.1);}
+    .nav.active { right: 0; }
+    .burger-menu.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .burger-menu.active span:nth-child(2) { opacity: 0; }
+    .burger-menu.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    .hero-container { flex-direction: column; text-align: center; padding-top: 40px; }
+    .hero-image-wrapper { justify-content: center; width: 100%; }
+    .bank-card-3d { transform: none !important; margin-top: 20px; } /* Вимикаємо нахил на мобілці */
+    .bank { font-size: 42px; }
+    .btn-hero-login { margin: 0 auto; }
+    #themeToggle {
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+    
+}
+
+#themeToggle:hover {
+    transform: rotate(15deg) scale(1.2);
+}
+}
+
+@media (max-width: 480px) {
+    .bank { font-size: 36px; }
+    .bank-card-3d { width: 280px; height: 160px; padding: 20px; }
+    .card-logo { font-size: 20px; }
+    .card-number { font-size: 16px; }
+}
+
+/* ТЕМНА ТЕМА — Додаємо в кінець файлу */
+body.dark-theme {
+    background-color: #0b0d0c; /* Дуже темний фон */
+    color: #ffffff;            /* Білий текст */
+}
+
+/* Перекриваємо твій градієнт фону */
+body.dark-theme .main-content-wrapper {
+    background: linear-gradient(180deg, #121514 0%, #0b0d0c 100%) !important;
+}
+
+/* Оновлюємо хедер під темний стиль */
+body.dark-theme .header {
+    background-color: #121514 !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Текст посилань у хедері */
+body.dark-theme .nav a, 
+body.dark-theme .logo {
+    color: #ffffff !important;
+}
+
+/* Твоя 3D-картка SferaBank у темній темі */
+body.dark-theme .bank-card-3d,
+body.dark-theme .bank-card-3d * {
+    background: rgba(255, 255, 255, 0.05) !important;
+        
+        color: #fff !important;
+        
+        border: none !important;
+        background: none !important;
+}
+/* Фарбуємо ТІЛЬКИ чіп */
+body.dark-theme .bank-card-3d .chip, 
+body.dark-theme .bank-card-3d [class*="chip"] {
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    opacity: 1 !important;
+    width: 50px; /* Додай реальні розміри свого чіпа, якщо вони злетіли */
+    height: 35px;
+    display: block !important;
+}
+
+/* ГАРАНТІЯ: Сама картка залишається темною */
+body.dark-theme .bank-card-3d {
+    background: #1a1d1c !important; /* Або твій темний колір */
+    color: #ffffff !important;
+}
+
+/* Мобільне меню */
+body.dark-theme .nav {
+    background-color: #121514 !important;
+}
+
+/* Чат-бот вікно */
+body.dark-theme .chat-box {
+    background: rgba(30, 35, 33, 0.8) !important;
+    color: white !important;
+    border-radius: 20px !important;
+    overflow: hidden !important; /* Обрізає все, що виходить за радіус кутів */
+}
+
+.chat-input {
+    display: flex !important;
+    align-items: center !important;
+    padding: 10px 15px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 10px !important;
+    
+    /* ФІКС ЗАКРУГЛЕННЯ НИЖНІХ КУТІВ: */
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+    
+    /* Додатково: прибираємо рамку, якщо вона є */
+    border: none !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+    
+/* Плавність переходу (додай це до основного body) */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+body.dark-theme .service-card, 
+body.dark-theme .services-grid div {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(10px);
+}
+/* Футер — прибираємо салатовий колір */
+body.dark-theme footer,
+body.dark-theme .footer-section {
+    background-color: #0b0d0c !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+
+
+/* ========================================================
+   ФІКС ВИПАДАЮЧОГО МЕНЮ (DROPDOWN) ДЛЯ ТЕМНОЇ ТЕМИ 
+   ======================================================== */
+
+/* 1. Фарбуємо саму плашку меню в темний колір */
+body.dark-theme .dropdown-menu {
+    background: #151716 !important; /* Твій глибокий темний фон */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Тонка акуратна рамка */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important; /* М'яка темна тінь */
+}
+
+/* 2. Робимо текст посилань всередині меню білим і видимим */
+body.dark-theme .dropdown-menu a {
+    color: #ffffff !important;
+    background: transparent !important; /* Прибираємо білі підкладки, якщо десь вилізли */
+    transition: background 0.2s ease;
+}
+
+/* 3. Ефект наведення (Hover) на пункт меню */
+body.dark-theme .dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.05) !important; /* Легке підсвічування пункту */
+    color: #ffffff !important;
+}
+/* ФІКС ЗАГОЛОВКА МОДАЛКИ ДЛЯ ТЕМНОЇ ТЕМИ */
+body.dark-theme .modal-window h3 {
+    color: #1a1d1c !important; /* Повертаємо йому чіткий темний колір */
+}
+/* ========================================================
+   СТИЛІ ФОРМИ ЗАМОВЛЕННЯ КАРТКИ (СВІТЛА ТЕМА)
+   ======================================================== */
+
+/* Контейнер для всієї секції (відступи на сторінці) */
+.order-section {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Біла картка форми */
+.order-container {
+    background: #ffffff;
+    max-width: 500px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.order-container h2 {
+    font-size: 28px;
+    color: #1a1d1c;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.order-container p {
+    font-size: 15px;
+    color: #666666;
+    margin-bottom: 35px;
+    line-height: 1.5;
+}
+
+/* Сітка самої форми */
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Відступи між полями вводу */
+}
+
+/* Обгортка для ефекту плаваючих підказок (label) */
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+/* Стилі для полів вводу та селекту */
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #ffffff;
+    color: #1a1d1c;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Початковий стан підказок (текст лежить всередині поля) */
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999999;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    padding: 0 6px;
+}
+
+/* Магія CSS: коли поле активне або заповнене — текст летить вгору і стає меншим */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group select:focus ~ label,
+.input-group select:valid ~ label {
+    top: 0;
+    font-size: 12px;
+    color: #1a1d1c;
+    font-weight: 600;
+}
+
+/* Активна рамка поля при кліку */
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #1a1d1c;
+}
+
+/* Кнопка відправки заявки */
+.btn-order {
+    background: #1a1d1c;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+/* Ефект наведення на кнопку */
+.btn-order:hover {
+    background: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ========================================================
+   АДАПТАЦІЯ ФОРМИ ПІД ТЕМНУ ТЕМУ (DARK THEME)
+   ======================================================== */
+
+/* Робимо картку форми темною */
+body.dark-theme .order-container {
+    background: #151716 !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .order-container h2 {
+    color: #ffffff !important;
+}
+
+body.dark-theme .order-container p {
+    color: #aaaaaa !important;
+}
+
+/* Затемнюємо інпути та випадаючий список */
+body.dark-theme .input-group input, 
+body.dark-theme .input-group select {
+    background: #1a1d1c !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+/* Перефарбовуємо плаваючі підказки та їхній фон під нове тло */
+body.dark-theme .input-group label {
+    background: #151716 !important; /* Важливо! Щоб текст перекривав рамку інпута без дірок */
+    color: #777777 !important;
+}
+
+/* Колір підказки зверху при активності в темній темі */
+body.dark-theme .input-group input:focus ~ label,
+body.dark-theme .input-group input:not(:placeholder-shown) ~ label,
+body.dark-theme .input-group select:focus ~ label,
+body.dark-theme .input-group select:valid ~ label {
+    color: #ffffff !important;
+}
+
+body.dark-theme .input-group input:focus,
+body.dark-theme .input-group select:focus {
+    border-color: #ffffff !important;
+}
+
+/* Інверсія кнопки для темної теми (робимо її білою) */
+body.dark-theme .btn-order {
+    background: #ffffff !important;
+    color: #1a1d1c !important;
+}
+
+body.dark-theme .btn-order:hover {
+    background: #e5e5e5 !important;
+}
