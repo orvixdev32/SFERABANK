@@ -1,50 +1,55 @@
-MintixBank
+# MintixBank — Frontend Web Application
 
-Frontend part of a website for a modern online bank. The project demonstrates modern UI/UX design, interactive elements, and optimized performance on mobile devices.
+MintixBank is a responsive landing page for a modern online banking platform, built using pure web technologies without heavy third-party frameworks. The project demonstrates core frontend competencies: semantic markup, clean CSS architecture powered by Custom Properties, and modular DOM interactions using native JavaScript.
 
-Core Features
+## Key Features
 
-Responsive design (Mobile-First) using Flexbox and CSS Grid.
+- **Responsive Design (Mobile-First):** Optimized layout across mobile, tablet, and desktop viewports using Flexbox and CSS Grid.
+- **Dark & Light Theme Support:** Dynamic color scheme powered by CSS variables, persisted in LocalStorage, with automatic detection of user system preferences (`prefers-color-scheme`).
+- **Internationalization (i18n):** Real-time language switching (UA / EN) via a client-side dictionary without page reloads.
+- **Interactive 3D Bank Card:** Dynamic tilt and glare perspective effect in the Hero section powered by `vanilla-tilt.js`.
+- **Live Support Chatbot Widget:**
+  - Floating greeting tooltip and unread notification badge;
+  - Animated message appearance;
+  - Simulated operator typing indicator;
+  - Full-screen modal mode on mobile viewports.
+- **Card Application Form:**
+  - Animated Floating Labels effect;
+  - Ukrainian phone number validation format (`+380...` / `0...`);
+  - Interactive submission flow with loading state (CSS spinner) and demo notice without requiring a backend server.
+- **Authentication & User Cabinet:**
+  - Accessible login modal with input validation and loading state;
+  - Client-side personal cabinet displaying verified user status, card info, and balance;
+  - Session persistence via SessionStorage;
+  - Keyboard accessibility (close via Escape key).
 
-Theme switcher (Light/Dark) with state saved in LocalStorage.
+## Demo Credentials
 
-Multilingual support (UA/EN) with dynamic text replacement via JavaScript.
+To test the authentication flow and view the personal cabinet:
+- **Username:** `admin`
+- **Password:** `12345`
 
-Interactive 3D card in the hero section (powered by vanilla-tilt.js).
+## Technologies Used
 
-Chatbot widget:
+- **HTML5:** Semantic elements, ARIA accessibility attributes (a11y), proper heading hierarchy, autocomplete attributes.
+- **CSS3:** Custom Properties (variables), CSS Grid, Flexbox, keyframes animations, backdrop-filter, `prefers-reduced-motion` media query.
+- **JavaScript (ES6+):** DOM manipulation, event delegation, Web Storage API (LocalStorage, SessionStorage), asynchronous timers.
+- **Libraries:** `vanilla-tilt.js` (loaded via CDN for the 3D card tilt effect).
 
-Animated message appearance.
+## Project Structure
 
-Typing indicator for the manager.
+```text
+├── index.html        # Main markup file
+├── style.css         # Stylesheet with CSS variables, themes, and responsiveness
+├── javascript.js     # Client-side logic (themes, i18n, modals, forms, chatbot)
+├── .gitignore        # Git ignore rules
+└── README.md         # Project documentation
+```
 
-New message badge and popup greeting (tooltip).
-
-Full-screen mode for mobile devices.
-
-Card order form with floating labels effect.
-
-Authorization modal window with CSS loading animation (spinner) and input error handling.
-
-Technologies
-
-HTML5 (Semantic markup, a11y accessibility attributes)
-
-CSS3 (CSS variables, keyframes animations, backdrop-filter)
-
-JavaScript (ES6, DOM manipulation, setTimeout, LocalStorage)
-
-Project Structure
-
-index.html : Main markup file.
-
-style.css : All project styles, including media queries for responsiveness and dark theme styles.
-
-javascript.js : Logic for language switcher, themes, modal windows, login form, and chatbot.
-
-How to Run
+## How to Run
 
 The project is completely static and requires no build steps or dependencies.
-To view it, simply open the index.html file in any modern web browser.
 
-For development and to avoid potential CORS issues (if external APIs are added later), it is recommended to run the project via a local server, such as the Live Server extension for VS Code.
+1. Clone the repository or download the source files.
+2. Open `index.html` directly in any modern browser (Chrome, Firefox, Safari, Edge).
+3. For local development, using the VS Code Live Server extension is recommended.
